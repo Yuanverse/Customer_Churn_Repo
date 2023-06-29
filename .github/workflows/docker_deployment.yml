@@ -50,17 +50,17 @@ jobs:
             StrictHostKeyChecking no
           END
       
-      - name: Install Docker on AWS remote machine
-        run: ssh remote_host "sudo yum update -y && sudo yum install -y docker"
+      # - name: Install Docker on AWS remote machine
+      #   run: ssh remote_host "sudo yum update -y && sudo yum install -y docker"
 
-      - name: Grant privileges to ec2-user
-        run: ssh remote_host "sudo usermod -a -G docker ec2-user"
+      # - name: Grant privileges to ec2-user
+      #   run: ssh remote_host "sudo usermod -a -G docker ec2-user"
 
-      - name: Log out and log back in again
-        run: exit
+      # - name: Log out and log back in again
+      #   run: exit
 
-      - name: Log in to EC2 instance again
-        run: ssh -i ~/.ssh/ai300-capstone.pem ec2-user@${{ secrets.SSH_HOST }}
+      # - name: Log in to EC2 instance again
+      #   run: ssh -i ~/.ssh/ai300-capstone.pem ec2-user@${{ secrets.SSH_HOST }}
 
       - name: Deploy Docker container on AWS via SSH
         run: |  # Pre-requisite: docker has been installed on remote machine
