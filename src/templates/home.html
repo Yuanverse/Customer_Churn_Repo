@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Churn Prediction</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='../static/assets/favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-2xl font-bold mb-4">Churn Prediction</h1>
+        <form method="POST">
+
+            <label class="form-label" for="gender">Gender:</label><br>
+            <select class="form-input" id="gender" value="Male" name="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select><br><br>
+    
+            <label class="form-label" for="age">Age:</label><br>
+            <input class="form-input" type="number" id="age" name="age" step="1" value=30 required><br><br>
+
+            <label class="form-label" for="married">Married:</label><br>
+            <select class="form-input" id="married" value="Yes" name="married">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+    
+            <label class="form-label" for="num_dependents">Number of Dependents:</label><br>
+            <input class="form-input" type="number" id="num_dependents" name="num_dependents" step="1" value=10 required><br><br>
+
+            <label class="form-label" for="area_id">Area ID:</label><br>
+            <input class="form-input" type="text" id="area_id" name="area_id" value=631><br><br>
+            
+            <label class="form-label" for="tenure_months">Tenure Months:</label><br>
+            <input class="form-input" type="number" id="tenure_months" name="tenure_months" step="1" value=8 required><br><br>
+
+            <label class="form-label" for="num_referrals">Number of Referrals:</label><br>
+            <input class="form-input" type="number" id="num_referrals" name="num_referrals" step="1" value=3 required><br><br>
+    
+            <label class="form-label" for="has_internet_service">Has Internet Service:</label><br>
+            <select class="form-input" id="has_internet_service" value="Yes" name="has_internet_service">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+    
+            <label class="form-label" for="internet_type">Internet Type:</label><br>
+            <select class="form-input" id="internet_type" value="Cable" name="internet_type">
+                <option value="Cable">Cable</option>
+                <option value="DSL">DSL</option>
+                <option value="Fibre Optic">Fibre Optic</option>
+                <option value="None">None</option>
+            </select><br><br>
+    
+            <label class="form-label" for="has_unlimited_data">Has Unlimited Data:</label><br>            
+            <select class="form-input" id="has_unlimited_data" value="Yes" name="has_unlimited_data">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+    
+            <label class="form-label" for="has_phone_service">Has Phone Service:</label><br>
+            <select class="form-input" id="has_phone_service" value="Yes" name="has_phone_service">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+    
+            <label class="form-label" for="has_multiple_lines">Has Multiple Lines:</label><br>
+            <select class="form-input" id="has_multiple_lines" value="Yes" name="has_multiple_lines">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+    
+            <label class="form-label" for="has_premium_tech_support">Has Premium Tech Support:</label><br>
+            <select class="form-input" id="has_premium_tech_support" value="Yes" name="has_premium_tech_support">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+            
+            <label class="form-label" for="has_online_security">Has Online Security:</label><br>
+            <select class="form-input" id="has_online_security" value="Yes" name="has_online_security">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+    
+            <label class="form-label" for="has_online_backup">Has Online Backup:</label><br>
+            <select class="form-input" id="has_online_backup" value="Yes" name="has_online_backup">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+    
+            <label class="form-label" for="has_device_protection">Has Device Protection:</label><br>
+            <select class="form-input" id="has_device_protection" value="Yes" name="has_device_protection">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+    
+            <label class="form-label" for="contract_type">Contract Type:</label><br>
+            <select class="form-input" id="contract_type" name="contract_type">
+                <option value="Month-to-Month">Month-to-Month</option>
+                <option value="One Year" selected>One Year</option>
+                <option value="Two Year">Two Year</option>
+            </select><br><br>
+    
+            <label class="form-label" for="paperless_billing">Paperless Billing:</label><br>
+            <select class="form-input" id="paperless_billing" name="paperless_billing">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+    
+            <label class="form-label" for="payment_method">Payment Method:</label><br>
+            <select class="form-input" id="payment_method" name="payment_method">
+                <option value="Bank Withdrawal">Bank Withdrawal</option>
+                <option value="Credit Card">Credit Card</option>
+                <option value="Mailed Check" selected>Mailed Check</option>
+            </select><br><br>
+    
+            <label class="form-label" for="avg_long_distance_fee_monthly">Avg Long Distance Fee Monthly:</label><br>
+            <input class="form-input" type="number" id="avg_long_distance_fee_monthly" name="avg_long_distance_fee_monthly" step="0.1" value=100 required><br><br>
+    
+            <label class="form-label" for="avg_gb_download_monthly">Avg GB Download Monthly:</label><br>
+            <input class="form-input" type="number" id="avg_gb_download_monthly" name="avg_gb_download_monthly" step="0.1" value=100 required><br><br>
+
+            <label class="form-label" for="stream_tv">Stream TV:</label><br>
+            <select class="form-input" id="stream_tv" name="stream_tv">
+                <option value="Yes" selected>Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+
+            <label class="form-label" for="stream_movie">Stream Movie:</label><br>
+            <select class="form-input" id="stream_movie" name="stream_movie">
+                <option value="Yes" selected>Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+
+            <label class="form-label" for="stream_music">Stream Music:</label><br>
+            <select class="form-input" id="stream_music" name="stream_music">
+                <option value="Yes" selected>Yes</option>
+                <option value="No">No</option>
+            </select><br><br>
+
+            <label class="form-label" for="total_monthly_fee">Total Monthly Fee:</label><br>
+            <input class="form-input" type="number" id="total_monthly_fee" name="total_monthly_fee" step="0.1" value=60 required><br><br>
+
+            <label class="form-label" for="total_charges_quarter">Total Charges Quarter:</label><br>
+            <input class="form-input" type="number" id="total_charges_quarter" name="total_charges_quarter" step="0.1" value=1000 required><br><br>
+
+            <label class="form-label" for="total_refunds">Total Refunds:</label><br>
+            <input class="form-input" type="number" id="total_refunds" name="total_refunds" step="0.1" value=89 required><br><br>
+
+            <input class="form-submit" type="submit" value="Submit">
+        </form>
+
+        {% if prediction is defined %}
+        <div class="prediction">
+            <h2 class="text-lg font-bold">Label: {{ churn_label }}</h2>
+            <h2 class="text-lg font-bold">Predicted Churn Probability: {{ prediction }}%</h2>
+            <h2 class="text-lg font-bold">Predicted Non-Churn Probability: {{ non_prediction }}%</h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

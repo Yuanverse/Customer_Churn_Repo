@@ -1,0 +1,11 @@
+pandas==2.0.2
+numpy==1.24.3
+Flask==2.2.0
+joblib==1.2.0
+catboost==1.2
+scikit-learn==1.2.2
+python-dotenv==1.0.0
+pymysql==1.0.3
+requests==2.31.0
+gunicorn==20.1.0
+waitress==2.1.2
