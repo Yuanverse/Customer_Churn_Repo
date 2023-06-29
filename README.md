@@ -6,7 +6,7 @@ Team Logo: ![Logo](./src/static/assets/favicon-32x32.png)
 
 Names of team members:
 - Kai Yuan T.
-- Jessica G.
+- Jessica G
 
 
 # Churn Prediction
