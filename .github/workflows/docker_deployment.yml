@@ -5,7 +5,7 @@ on:
     branches: [ "master" ]
 
 env:
-  IMAGE_NAME: ${ yuanverse/customer_churn_repo_public }   # Format: <dockerhub_account>/<repo>
+  IMAGE_NAME: ${{ yuanverse/customer_churn_repo_public }}   # Format: <dockerhub_account>/<repo>
   IMAGE_TAG: ${{ github.sha }}
 
 jobs:
