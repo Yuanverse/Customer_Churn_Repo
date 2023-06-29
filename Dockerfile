@@ -6,16 +6,16 @@ FROM python:3.11-slim
 WORKDIR /customer_churn_repo
 
 # Copy the requirements.txt file and required directories into docker image
-COPY ./requirements.txt /customer_churn_repo/requirements.txt
-COPY ./src /customer_churn_repo/src
-COPY ./model /customer_churn_repo/model
+COPY ./requirements.txt ./requirements.txt
+COPY ./src ./src
+COPY ./model ./model
 
 # Add /src directory to PYTHONPATH, so that model.py Python module can be found
 # To add multiple directories, delimit with colon e.g. /flask-app/src:/flask-app
 ENV PYTHONPATH /customer_churn_repo/src
 
 # Install python package dependancies, without saving downloaded packages locally
-RUN pip install -r /customer_churn_repo/requirements.txt --no-cache-dir
+RUN pip install -r requirements.txt
 
 # Allow port 80 to be accessed (Flask app)
 EXPOSE 80
